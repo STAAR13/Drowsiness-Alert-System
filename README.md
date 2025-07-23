@@ -52,8 +52,31 @@ Install dependencies using:
 ```bash
 pip install opencv-python keras tensorflow numpy pygame matplotlib
 ```
+## How It Works
 
-# Real-Time Driver Drowsiness Alert System
+### Model Training (`model.py`)
+
+- Trains a **Convolutional Neural Network (CNN)** on **grayscale eye images (24x24)**.
+- Classifies eyes as **Open** or **Closed**.
+- Saves the trained model (`cnn.h5`).
+
+### Real-Time Detection (`drowsiness detection.py`)
+
+- Captures video using the **webcam**.
+- Detects **face and eyes** using Haar cascades.
+- Predicts **eye status** using the trained CNN.
+- Increases the **drowsiness score** when eyes are closed.
+- Triggers a **red flashing border and alarm** when the score exceeds the threshold (`score > 15`).
+
+---
+
+## Usage
+
+Ensure you have:
+
+✅ Trained the CNN model (`model.py`) or placed your `cnn.h5` in the `models` folder.  
+✅ Haar cascade XML files in the `haar cascade files` folder.  
+✅ `alarm.wav` in your project directory.
 
 **Files**
 
@@ -72,3 +95,13 @@ pip install opencv-python keras tensorflow numpy pygame matplotlib
 ```bash
 python drowsiness_detection.py
 ```
+Press q to exit the detection window.
+
+## Results
+
+If the driver closes their eyes for a prolonged period:
+
+-  **An alarm sound is triggered.**
+-  **A red flashing border appears on the video feed.**
+-  **Helps in alerting the driver in case of microsleep or drowsiness.**
+
