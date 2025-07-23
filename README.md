@@ -2,7 +2,8 @@
 
 ## Overview
 
-This project is a **Real-Time Driver Drowsiness Alert System** that monitors a driver’s eye status through a webcam and alerts them when signs of drowsiness are detected. Utilizing **OpenCV** for image capture and preprocessing, a **Convolutional Neural Network (CNN)** model classifies the driver’s eyes as 'Open' or 'Closed.' If the eyes remain closed for an extended period, an alarm is triggered to keep the driver alert.
+This project implements a **real-time driver drowsiness detection system** using **OpenCV, Keras (CNN), and Pygame**. The system monitors the driver’s eye status via webcam and triggers an alarm if drowsiness is detected, helping prevent accidents caused by microsleep while driving.
+
 
 ## System Workflow
 
@@ -35,14 +36,21 @@ The **Convolutional Neural Network (CNN)** used for classification has the follo
 ### Hardware
 - Webcam for image capture.
 
-### Libraries
-Ensure Python (version 3.6 recommended) is installed, then install the following libraries:
+
+## Requirements
+
+- Python 3.x
+- OpenCV
+- Keras
+- TensorFlow
+- Numpy
+- Pygame
+- Matplotlib
+
+Install dependencies using:
 
 ```bash
-pip install opencv-python
-pip install tensorflow
-pip install keras
-pip install pygame
+pip install opencv-python keras tensorflow numpy pygame matplotlib
 ```
 
 # Real-Time Driver Drowsiness Alert System
@@ -50,8 +58,7 @@ pip install pygame
 **Files**
 
 * **haar cascade files**: XML files for detecting faces and eyes (located in "haar cascade files" folder)
-* **models**:
-    * `cnnCat2.h5`: Trained CNN model for eye classification
+* `cnn.h5`: Trained CNN model for eye classification
 * **alarm.wav**: Audio file played if drowsiness is detected (located in root directory)
 * **Python Scripts**:
     * `Model.py`: Script for building and training the CNN model
